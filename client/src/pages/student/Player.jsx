@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Loading = () => {
+const Player = () => {
     return (
         <div>
-        <h1>Loading</h1>
+        <h1>Player</h1>
         </div>
     )
 }
 
-export default Loading
+export default Player

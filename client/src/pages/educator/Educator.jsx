@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Loading = () => {
+const Educator = () => {
     return (
         <div>
-        <h1>Loading</h1>
+        
         </div>
     )
 }
 
-export default Loading
+export default Educator
