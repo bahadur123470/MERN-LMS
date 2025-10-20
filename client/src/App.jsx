@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes, useMatch} from 'react-router-dom';
 import Home from './pages/student/Home.jsx';
 import CoursesList from './pages/student/CoursesList.jsx';
 import CourseDetails from './pages/student/CourseDetails.jsx';
@@ -11,9 +11,14 @@ import Dashboard from './pages/educator/Dashboard.jsx';
 import AddCourse from './pages/educator/AddCourse.jsx';
 import MyCourses from './pages/educator/MyCourses.jsx';
 import StudentEnrolled from './pages/educator/StudentsEnrolled.jsx'
+import Navbar from './components/students/Navbar.jsx';
 const App = () => {
+
+  const isEducatorRoute = useMatch('/educator/*')
+
   return (
-    <div>
+    <div className='text-default min-h-screen bg-white'>
+      {!isEducatorRoute && <Navbar/>}
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/Course-list' element={<CoursesList/>} />
@@ -23,11 +28,11 @@ const App = () => {
         <Route path='/player/:courseId' element={<Player/>} />
 
         <Route path='/loading/:path' element={<Loading/>} />
-        <Route path='educator' element={<Educator/>}>
-          <Route path='/educator' element={<Dashboard/>}/>
-          <Route path='/add-course' element={<AddCourse/>}/>
-          <Route path='/my-courses' element={<MyCourses/>}/>
-          <Route path='/student-enrolled' element={<StudentEnrolled/>}/>
+        <Route path='/educator' element={<Educator/>}>
+          <Route path='educator' element={<Dashboard/>}/>
+          <Route path='add-course' element={<AddCourse/>}/>
+          <Route path='my-courses' element={<MyCourses/>}/>
+          <Route path='student-enrolled' element={<StudentEnrolled/>}/>
         </Route>
       </Routes>
       
